@@ -1,0 +1,214 @@
+/* || RESETS */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	scroll-behavior: smooth;
+
+	--prime-red: hsl(0, 78%, 62%);
+	--prime-cyan: hsl(180, 62%, 55%);
+	--prime-orange: hsl(34, 97%, 64%);
+	--prime-blue: hsl(212, 86%, 64%);
+
+	--grey-dark: hsl(236, 14%, 24%);
+	--grey-neutral: hsl(180, 0%, 46%);
+	--grey-light: hsl(0, 0%, 98%);
+
+	color: var(--grey-dark);
+}
+
+/* Typeface in input fields */
+input,
+select,
+textarea,
+button {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	padding-inline-start: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+/* GLOBAL STYLES */
+
+body {
+	background-color: var(--grey-light);
+	padding: 4rem clamp(30px, 7vw, 90px);
+
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+h2 > b {
+	font-weight: 600;
+}
+
+main {
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+main > * {
+	outline: 1px dashed hotpink;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	max-width: 50ch;
+}
+
+header > p {
+	color: var(--grey-neutral);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+a:focus-visible {
+	outline: dashed var(--grey-dark);
+}
+
+::selection {
+	color: white;
+	background-color: var(--grey-dark);
+}
+
+.attribution {
+	font-size: 12px;
+	text-align: center;
+}
+
+.attribution a {
+	font-weight: 600;
+}
+
+/* CARD */
+
+#cards {
+	display: grid;
+	gap: 45px;
+}
+
+.card {
+	background-color: white;
+	background-size: 100% 4px;
+	background-position: top left;
+	background-repeat: no-repeat;
+
+	border-radius: 8px;
+	padding: 2rem;
+	
+	max-width: 400px;
+	min-height: 280px;
+	
+	box-shadow: 0 16px 16px 0 hsla(0, 0%, 0%, 0.05);
+	text-align: left;
+	line-height: 1.7;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	position: relative;
+}
+
+.card::after {
+	content: "";
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+	width: 80px;
+	height: 80px;
+
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+}
+
+.cyan {
+	background-image: linear-gradient(var(--prime-cyan), var(--prime-cyan));
+}
+
+.cyan::after {
+	background-image: url(images/icon-supervisor.svg);
+}
+
+.red {
+	background-image: linear-gradient(var(--prime-red), var(--prime-red));
+}
+
+.red::after {
+	background-image: url(images/icon-team-builder.svg);
+}
+
+.orange {
+	background-image: linear-gradient(var(--prime-orange), var(--prime-orange));
+}
+
+.orange::after {
+	background-image: url(images/icon-karma.svg);
+}
+
+.blue {
+	background-image: linear-gradient(var(--prime-blue), var(--prime-blue));
+}
+
+.blue::after {
+	background-image: url(images/icon-calculator.svg);
+}
+
+.card > .card-header {
+	font-size: clamp(1.5rem, 5vw, 1.8rem);
+	font-weight: 600;
+}
+
+.card > p {
+	color: var(--grey-neutral);
+}
